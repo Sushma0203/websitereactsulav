@@ -2,10 +2,10 @@ import React from 'react';
 
 const FAQ = () => {
     const faqs = [
-        { q: "तपाईंको सुन कति क्यारेटको हुन्छ?", a: "हामी २४ र २२ क्यारेटको शुद्ध सुनको गहनाहरू मात्र बनाउँछौं।" },
-        { q: "के गहना अर्डरमा बनाउन सकिन्छ?", a: "हो, हामी तपाईंको आफ्नै डिजाइन वा रुचि अनुसार गहनाहरू अर्डरमा बनाउँछौं।" },
-        { q: "के तपाईं पुरानो सुन साट्नुहुन्छ?", a: "हो, हामी हालको बजार दर अनुसार पुरानो सुन साट्ने वा खरिद गर्ने सुविधा प्रदान गर्दछौं।" },
-        { q: "पसल कति बजेसम्म खुल्ला रहन्छ?", a: "हाम्रो पसल बिहान १० बजेदेखि साँझ ७ बजेसम्म सातै दिन खुल्ला रहन्छ।" }
+        { q: "What karat is your gold?", a: "We only make 24 and 22 karat pure gold jewelry." },
+        { q: "Can jewelry be made to order?", a: "Yes, we make jewelry according to your own design or interest." },
+        { q: "Do you exchange old gold?", a: "Yes, we provide the facility for exchanging or purchasing old gold according to the current market rate." },
+        { q: "What time is the shop open?", a: "Our shop is open seven days a week from 10 am to 7 pm." }
     ];
 
     return (
@@ -13,8 +13,8 @@ const FAQ = () => {
             <section className="faq-hero hero fullwidth">
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <h1>सोधिएका प्रश्नहरू (FAQ)</h1>
-                    <p>तपाईंका केही जिज्ञासाहरूका उत्तरहरू यहाँ पाउन सक्नुहुन्छ।</p>
+                    <h1>Frequently Asked Questions (FAQ)</h1>
+                    <p>You can find answers to some of your questions here.</p>
                 </div>
             </section>
 

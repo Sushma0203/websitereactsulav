@@ -1,47 +1,47 @@
 export const websiteData = {
     hero: {
-        title: "हात्ती मा ज्यासा पस",
-        subtitle: "परम्परागत कला र आधुनिकताको संगम। शुद्धता र विश्वास हाम्रो पहिचान।",
-        location: "पाटन, ललितपुर",
-        phone: "९८४१२३४५६७",
-        buttonText: "अहिल्यै किन्नुहोस्",
+        title: "Harati Maa Jyasa Pasa",
+        subtitle: "A blend of traditional art and modernity. Purity and trust are our identity.",
+        location: "Patan, Lalitpur",
+        phone: "+977-9841234567",
+        buttonText: "Shop Now",
         buttonLink: "/shop",
         backgroundImage: "/img/bg.jpg"
     },
     navLinks: [
-        { name: "गृह", link: "/" },
-        { name: "बारेमा", link: "/about" },
-        { name: "पसल", link: "/shop" },
-        { name: "डिजाइन", link: "/design" },
-        { name: "सेवाहरू", link: "/services" },
-        { name: "प्रश्नहरू", link: "/faq" },
-        { name: "सम्पर्क", link: "/contact" },
-        { name: "बुकिङ", link: "/book" },
-        { name: "प्रतिक्रिया", link: "/reviews" }
+        { name: "Home", link: "/" },
+        { name: "About", link: "/about" },
+        { name: "Shop", link: "/shop" },
+        { name: "Design", link: "/design" },
+        { name: "Services", link: "/services" },
+        { name: "FAQ", link: "/faq" },
+        { name: "Contact", link: "/contact" },
+        { name: "Book", link: "/book" },
+        { name: "Reviews", link: "/reviews" }
     ],
     products: [
-        { id: 1, name: "सुनको हार", weight: "२ तोला", image: "/img/shop/necklace1.jpg" },
-        { id: 2, name: "शिरबन्दी", weight: "१ तोला", image: "/img/shop/necklace2.jpg" },
-        { id: 3, name: "सुनको चुरा", weight: "३ तोला", image: "/img/shop/bracelet1.jpg" },
-        { id: 4, name: "कम्बरबन्दी", weight: "४ तोला", image: "/img/shop/kamarbandi.jpg" },
-        { id: 5, name: "शिरबन्दी (विशेष)", weight: "१.५ तोला", image: "/img/shop/necklace3.jpg" },
-        { id: 6, name: "सुनको औंठी", weight: "०.५ तोला", image: "/img/shop/ring1.jpg" }
+        { id: 1, name: "Gold Necklace", weight: "2 Tola", image: "/img/shop/necklace1.jpg" },
+        { id: 2, name: "Shirbandi", weight: "1 Tola", image: "/img/shop/necklace2.jpg" },
+        { id: 3, name: "Gold Bangle", weight: "3 Tola", image: "/img/shop/bracelet1.jpg" },
+        { id: 4, name: "Kamarbandi", weight: "4 Tola", image: "/img/shop/kamarbandi.jpg" },
+        { id: 5, name: "Shirbandi (Special)", weight: "1.5 Tola", image: "/img/shop/necklace3.jpg" },
+        { id: 6, name: "Gold Ring", weight: "0.5 Tola", image: "/img/shop/ring1.jpg" }
     ],
     categories: [
-        { name: "हार", image: "/img/shop/necklace1.jpg", link: "/shop?cat=necklace" },
-        { name: "औंठी", image: "/img/shop/ring1.jpg", link: "/shop?cat=ring" },
-        { name: "कानको झुम्का", image: "/img/shop/earring1.jpg", link: "/shop?cat=earrings" }
+        { name: "Necklace", image: "/img/shop/necklace1.jpg", link: "/shop?cat=necklace" },
+        { name: "Ring", image: "/img/shop/ring1.jpg", link: "/shop?cat=ring" },
+        { name: "Earrings", image: "/img/shop/earring1.jpg", link: "/shop?cat=earrings" }
     ],
     offers: [
-        { title: "नयाँ वर्षको विशेष छुट!", image: "/img/about/jewellery.jpg" },
-        { title: "वेडिङ सिजन प्याकेज", image: "/img/shop/necklace2.jpg" }
+        { title: "New Year Special Discount!", image: "/img/about/jewellery.jpg" },
+        { title: "Wedding Season Package", image: "/img/shop/necklace2.jpg" }
     ],
     testimonials: [
-        { name: "रिता शर्मा", comment: "यहाँको गहनाको गुणस्तर र डिजाइन अत्यन्तै राम्रो छ।" },
-        { name: "अमित महर्जन", comment: "विश्वासिलो पसल, सेवा धेरै राम्रो।" }
+        { name: "Rita Sharma", comment: "The quality and design of the jewelry here is excellent." },
+        { name: "Amit Maharjan", comment: "Trusted shop, very good service." }
     ],
     footer: {
-        copy: "© २०२५ सर्वाधिकार सुरक्षित",
+        copy: "© 2025 All Rights Reserved",
         email: "haratimaa@gmail.com",
         facebook: "https://www.facebook.com/haratimaajyasapasa",
         instagram: "https://www.instagram.com/haratima_jp/",

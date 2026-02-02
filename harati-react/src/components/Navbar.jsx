@@ -19,7 +19,7 @@ const Navbar = () => {
             bsYear += 1;
         }
         let bsDay = adDate.getDate();
-        return `${toNepaliNumber(bsYear)}-${toNepaliNumber(bsMonth.toString().padStart(2, '0'))}-${toNepaliNumber(bsDay.toString().padStart(2, '0'))}`;
+        return `${bsYear}-${bsMonth.toString().padStart(2, '0')}-${bsDay.toString().padStart(2, '0')} BS`; // Changed to English digits for consistency
     };
 
     const updateDateTime = () => {
@@ -68,7 +68,7 @@ const Navbar = () => {
                             {link.name}
                         </NavLink>
                     ))}
-                    <NavLink to="/login" className="admin-btn">लगइन</NavLink>
+                    <NavLink to="/login" className="admin-btn">Login</NavLink>
                 </nav>
 
                 <div className="nav-datetime" id="navDateTime">{dateTime}</div>

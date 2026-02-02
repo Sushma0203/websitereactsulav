@@ -2,10 +2,10 @@ import React from 'react';
 
 const Design = () => {
     const designs = [
-        { title: "न्युवारी परम्परागत हार", image: "/img/shop/necklace1.jpg" },
-        { title: "आधुनिक सुनको औंठी", image: "/img/shop/ring1.jpg" },
-        { title: "विवाह विशेष सेट", image: "/img/shop/necklace4.jpg" },
-        { title: "सिम्पल टप्स", image: "/img/shop/earring1.jpg" }
+        { title: "Newari Traditional Necklace", image: "/img/shop/necklace1.jpg" },
+        { title: "Modern Gold Ring", image: "/img/shop/ring1.jpg" },
+        { title: "Wedding Special Set", image: "/img/shop/necklace4.jpg" },
+        { title: "Simple Tops", image: "/img/shop/earring1.jpg" }
     ];
 
     return (
@@ -14,8 +14,8 @@ const Design = () => {
                 <img src="/img/designs.jpg" alt="Designs BG" className="bg-img" />
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <h1>हाम्रा डिजाइनहरू</h1>
-                    <p>हाम्रा उत्कृष्ट र अद्वितीय गहनाका डिजाइनहरू यहाँ हेर्नुहोस्।</p>
+                    <h1>Our Designs</h1>
+                    <p>View our exquisite and unique jewelry designs here.</p>
                 </div>
             </section>
 
