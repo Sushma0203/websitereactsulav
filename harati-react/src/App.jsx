@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Shop from './pages/Shop';
+import Services from './pages/Services';
 import './App.css';
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/design" element={<div>डिजाइन पृष्ठ (अझै बन्न बाँकी)</div>} />
-          <Route path="/services" element={<div>सेवाहरू पृष्ठ (अझै बन्न बाँकी)</div>} />
+          <Route path="/services" element={<Services />} />
           <Route path="/faq" element={<div>प्रश्नहरू पृष्ठ (अझै बन्न बाँकी)</div>} />
           <Route path="/contact" element={<div>सम्पर्क पृष्ठ (अझै बन्न बाँकी)</div>} />
           <Route path="/book" element={<div>बुकिङ पृष्ठ (अझै बन्न बाँकी)</div>} />
