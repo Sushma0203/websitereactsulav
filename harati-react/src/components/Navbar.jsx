@@ -25,24 +25,24 @@ const Navbar = () => {
                     <img src="/img/s.png" alt="Harati Logo" />
                 </NavLink>
 
-                <nav className="nav-links">
-                    {websiteData.navLinks.slice(0, 5).map((link, index) => (
+                <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
+                    {websiteData.navLinks.map((link, index) => (
                         <NavLink
                             key={index}
                             to={link.link}
                             className={({ isActive }) => isActive ? "active" : ""}
+                            onClick={() => setMenuOpen(false)}
                         >
                             {link.name}
                         </NavLink>
                     ))}
-                    <NavLink to="/login" className="admin-btn">Login</NavLink>
+                    <NavLink to="/login" className="admin-btn" onClick={() => setMenuOpen(false)}>Login</NavLink>
                 </nav>
 
                 <div className="nav-datetime">{dateTime}</div>
 
-                {/* Mobile Hamburger (Simplified for now) */}
-                <div className="hamburger" style={{ display: 'none' }}>
-                    <i className="fas fa-bars"></i>
+                <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+                    <i className={menuOpen ? "fas fa-times" : "fas fa-bars"}></i>
                 </div>
             </div>
         </header>
