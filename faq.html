@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="faq-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <div class="faq-wrapper">
+
+            <!-- TITLE -->
+            <div class="faq-title">
+                <h1 id="faqMainTitle"></h1>
+                <p id="faqSubtitle"></p>
+            </div>
+
+            <!-- FEATURED FAQS -->
+            <div id="featuredSection" style="display: none;">
+                <h2 class="section-title">⭐ Featured Questions</h2>
+                <div class="featured-grid" id="featuredGrid"></div>
+            </div>
+
+            <!-- ALL FAQS -->
+            <div id="otherSection" style="display: none;">
+                <h2 class="section-title">All Questions</h2>
+                <div class="faq-grid" id="otherGrid"></div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="faq-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER FAQ DATA =================
+
+        function renderFaqs() {
+            document.getElementById('faqMainTitle').textContent = faqData.title;
+            document.getElementById('faqSubtitle').textContent = faqData.subtitle;
+
+            const featuredGrid = document.getElementById('featuredGrid');
+            const otherGrid = document.getElementById('otherGrid');
+            const featuredSection = document.getElementById('featuredSection');
+            const otherSection = document.getElementById('otherSection');
+
+            const featuredFaqs = faqData.faqs.filter(f => f.is_featured);
+            const otherFaqs = faqData.faqs.filter(f => !f.is_featured);
+
+            if (featuredFaqs.length > 0) {
+                featuredSection.style.display = 'block';
+                featuredGrid.innerHTML = featuredFaqs.map(f => createFaqCard(f, true)).join('');
+            }
+
+            if (otherFaqs.length > 0) {
+                otherSection.style.display = 'block';
+                otherGrid.innerHTML = otherFaqs.map(f => createFaqCard(f, false)).join('');
+            }
+
+            setupAccordion();
+        }
+
+        function createFaqCard(faq, isFeatured) {
+            return `
+        <div class="faq-card">
+            ${isFeatured ? '<span class="featured-tag">FEATURED</span>' : ''}
+
+            <button class="faq-btn">
+                <div class="faq-left">
+                    <div class="faq-icon"><i class="${faq.icon || 'fas fa-question'}"></i></div>
+                    <span class="faq-question">${faq.question}</span>
+                </div>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+
+            <div class="faq-answer">
+                <p>${faq.answer}</p>
+            </div>
+        </div>
+    `;
+        }
+
+        function setupAccordion() {
+            document.querySelectorAll('.faq-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const answer = btn.nextElementSibling;
+                    const arrow = btn.querySelector('svg');
+
+                    // Close all other open FAQs
+                    document.querySelectorAll('.faq-btn').forEach(otherBtn => {
+                        if (otherBtn !== btn) {
+                            const otherAnswer = otherBtn.nextElementSibling;
+                            const otherArrow = otherBtn.querySelector('svg');
+                            otherAnswer.style.maxHeight = null;
+                            otherArrow.classList.remove('rotate');
+                        }
+                    });
+
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        arrow.classList.remove('rotate');
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        arrow.classList.add('rotate');
+                    }
+                });
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', renderFaqs);
+    </script>
+
+</body>
+
+</html>

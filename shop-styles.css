@@ -1,0 +1,226 @@
+/* ======================
+   SHOP - PREMIUM STYLE
+====================== */
+
+.shop-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    max-width: 1350px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* ======================
+   SIDEBAR & FILTERS
+====================== */
+.filter-sidebar {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.filter-group {
+    margin-bottom: 35px;
+}
+
+.filter-group h3 {
+    font-size: 1.1rem;
+    color: #4a0c0c;
+    margin-bottom: 20px;
+    font-weight: 700;
+    border-bottom: 2px solid #f9e076;
+    padding-bottom: 8px;
+    display: inline-block;
+}
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #555;
+    transition: 0.2s;
+}
+
+.filter-item:hover {
+    color: #d4af37;
+}
+
+.filter-item input {
+    width: 18px;
+    height: 18px;
+    accent-color: #d4af37;
+}
+
+/* Range Input */
+.price-range {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.price-inputs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.price-inputs input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.btn-filter {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #4a0c0c, #701111);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 12, 12, 0.3);
+}
+
+/* ======================
+   PRODUCT GRID
+====================== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+    border-color: #f9e076;
+}
+
+.product-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    aspect-ratio: 1/1;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge-gold {
+    background: linear-gradient(135deg, #f9e076, #d4af37);
+    color: #4a0c0c;
+}
+
+.badge-silver {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    color: #4a0c0c;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #4a0c0c;
+    margin-bottom: 15px;
+}
+
+.btn-book {
+    margin-top: auto;
+    width: 100%;
+    padding: 12px;
+    background: #f9f6f1;
+    color: #4a0c0c;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.btn-book:hover {
+    background: #d4af37;
+    color: #4a0c0c;
+}
+
+/* ======================
+   RESPONSIVE
+====================== */
+@media (max-width: 992px) {
+    .shop-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-sidebar {
+        order: -1;
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <section class="contact-section">
+            <h2 class="section-title" id="contactTitle">Contact Us / Send Your Design</h2>
+
+            <div class="contact-container">
+                <div id="alertSuccess" class="alert alert-success"></div>
+                <div id="alertError" class="alert alert-danger"></div>
+
+                <div class="contact-grid">
+                    <!-- CONTACT INFO -->
+                    <div class="contact-card contact-info">
+                        <h3>Our Contact Details</h3>
+                        <p><strong>📍 Address:</strong> <span id="contactAddress"></span></p>
+                        <p><strong>📞 Phone:</strong> <span id="contactPhone"></span></p>
+                        <p><strong>✉ Email:</strong> <span id="contactEmail"></span></p>
+                        <p class="custom-note" id="contactNote"></p>
+                    </div>
+
+                    <!-- CONTACT FORM -->
+                    <div class="contact-card contact-form">
+                        <h3>Send a Message / Design</h3>
+                        <form id="contactForm">
+                            <input type="text" name="name" id="name" placeholder="Your Name" required>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required>
+                            <textarea name="message" id="message" rows="4" placeholder="Describe your design or message"
+                                required></textarea>
+                            <div class="upload-box">
+                                <label>Upload your design (Optional)</label>
+                                <input type="file" name="design_file" id="designFile" accept="image/*">
+                            </div>
+                            <button type="submit">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- MAP -->
+                <div class="contact-card map-card">
+                    <iframe id="mapFrame" src="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="contact-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER CONTACT DATA =================
+
+        function renderContact() {
+            document.getElementById('contactTitle').textContent = contactData.title;
+            document.getElementById('contactAddress').textContent = contactData.details.address;
+            document.getElementById('contactPhone').textContent = contactData.details.phone;
+            document.getElementById('contactEmail').textContent = contactData.details.email;
+            document.getElementById('contactNote').textContent = contactData.details.note;
+            document.getElementById('mapFrame').src = contactData.map.embedUrl;
+        }
+
+        // Form Submission logic
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Simple validation
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            const successAlert = document.getElementById('alertSuccess');
+            const errorAlert = document.getElementById('alertError');
+
+            // Hide previous alerts
+            successAlert.style.display = 'none';
+            errorAlert.style.display = 'none';
+
+            if (!name || !email || !message) {
+                errorAlert.textContent = "❌ Please fill in all required fields.";
+                errorAlert.style.display = 'block';
+                return;
+            }
+
+            // Simulation success
+            successAlert.textContent = "✅ Message sent successfully! We will contact you soon.";
+            successAlert.style.display = 'block';
+
+            // Reset form
+            this.reset();
+
+            // Scroll to top of section to see alert
+            window.scrollTo({
+                top: document.querySelector('.contact-section').offsetTop - 50,
+                behavior: 'smooth'
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', renderContact);
+    </script>
+
+</body>
+
+</html>

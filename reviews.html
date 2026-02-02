@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reviews-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <div class="reviews-wrapper">
+
+            <h1 class="reviews-title" id="reviewsMainTitle"></h1>
+
+            <div id="alertSuccess" class="alert-success">✅ Review submitted successfully! Thank you for your feedback.
+            </div>
+
+            <!-- Review Form -->
+            <div class="review-form-container">
+                <form id="review-form" class="review-form">
+                    <input type="text" id="reviewName" placeholder="Your Name" required>
+                    <input type="email" id="reviewEmail" placeholder="Your Email" required>
+                    <input type="number" id="reviewRating" placeholder="Rating 1-5" min="1" max="5" required>
+                    <textarea id="reviewMessage" rows="5" placeholder="Your Review..." required></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Past Reviews -->
+            <h2 class="reviews-subtitle" id="reviewsSubtitle"></h2>
+
+            <div class="reviews-grid" id="reviews-list"></div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="reviews-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER REVIEWS DATA =================
+
+        const MAX_LENGTH = 120;
+
+        function renderReviews() {
+            document.getElementById('reviewsMainTitle').textContent = reviewsData.title;
+            document.getElementById('reviewsSubtitle').textContent = reviewsData.subtitle;
+
+            const listEl = document.getElementById('reviews-list');
+            listEl.innerHTML = reviewsData.reviews.map(r => createReviewCard(r)).join('');
+
+            setupReadMore();
+        }
+
+        function createReviewCard(r) {
+            const comment = r.comment || '';
+            const needsTruncate = comment.length > MAX_LENGTH;
+            const shortMsg = needsTruncate ? comment.substring(0, MAX_LENGTH) : comment;
+            const moreMsg = needsTruncate ? comment.substring(MAX_LENGTH) : '';
+
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= r.rating ? '⭐' : '☆';
+            }
+
+            return `
+        <div class="review-card">
+            <div class="review-header">
+                <h3>${r.name}</h3>
+                <div class="stars">${stars}</div>
+            </div>
+            <p class="review-text">
+                ${shortMsg}<span class="more-text" style="display: none;">${moreMsg}</span>
+                ${needsTruncate ? '<button class="read-more-btn">Read More</button>' : ''}
+            </p>
+            <p class="review-date">${r.date}</p>
+        </div>
+    `;
+        }
+
+        function setupReadMore() {
+            document.querySelectorAll('.read-more-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const moreText = this.previousElementSibling; // The .more-text span
+                    if (moreText.style.display === 'inline') {
+                        moreText.style.display = 'none';
+                        this.textContent = 'Read More';
+                    } else {
+                        moreText.style.display = 'inline';
+                        this.textContent = 'Read Less';
+                    }
+                });
+            });
+        }
+
+        // Form Submission logic
+        document.getElementById('review-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('reviewName').value;
+            const rating = document.getElementById('reviewRating').value;
+            const message = document.getElementById('reviewMessage').value;
+            const date = new Date().toLocaleDateString('en-US', { month: 'short', day: '2-digit', year: 'numeric' });
+
+            // Mock store the new review (not persistent across reloads without localStorage)
+            const newReview = {
+                name: name,
+                rating: parseInt(rating),
+                comment: message,
+                date: date
+            };
+
+            // Prepend to UI for demonstration
+            const listEl = document.getElementById('reviews-list');
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = createReviewCard(newReview);
+            listEl.insertBefore(tempDiv.firstElementChild, listEl.firstChild);
+
+            // Refresh Read More listeners
+            setupReadMore();
+
+            // Show success alert
+            const alert = document.getElementById('alertSuccess');
+            alert.style.display = 'block';
+
+            // Reset form
+            this.reset();
+
+            // Hide alert after 5 seconds
+            setTimeout(() => {
+                alert.style.display = 'none';
+            }, 5000);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', renderReviews);
+    </script>
+
+</body>
+
+</html>

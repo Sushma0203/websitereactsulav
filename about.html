@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="about-styles.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO -->
+        <section class="about-hero">
+            <div>
+                <h1 id="heroTitle"></h1>
+                <p id="heroSubtitle"></p>
+            </div>
+        </section>
+
+        <!-- ABOUT CONTENT -->
+        <div class="about-section">
+            <h1 class="about-title" id="contentTitle"></h1>
+            <p class="about-subtitle" id="contentSubtitle"></p>
+
+            <div class="about-image-box">
+                <img src="" alt="Harati Gold Shop" id="aboutZoom">
+            </div>
+
+            <div class="about-content" id="contentParagraphs">
+                <!-- Paragraphs will be dynamically loaded -->
+            </div>
+
+            <!-- ICONS -->
+            <div class="about-icons" id="iconFeatures">
+                <!-- Icons will be dynamically loaded -->
+            </div>
+        </div>
+
+        <!-- INFO CARDS -->
+        <section class="about-cards" id="infoCards">
+            <!-- Cards will be dynamically loaded -->
+        </section>
+
+        <!-- BUTTON -->
+        <div class="more-btn-box">
+            <a href="#" class="more-btn" id="moreBtn"></a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaa@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- IMAGE ZOOM MODAL -->
+    <div class="image-modal" id="imageModal">
+        <span class="image-close" id="closeImage">&times;</span>
+        <img src="" alt="Zoomed Image" id="zoomedImage">
+    </div>
+
+    <!-- Load Data Configuration -->
+    <script src="about-data.js"></script>
+    <!-- Load Main Scripts -->
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER DYNAMIC CONTENT =================
+
+        // Render Hero Section
+        function renderHero() {
+            document.getElementById('heroTitle').textContent = aboutData.hero.title;
+            document.getElementById('heroSubtitle').textContent = aboutData.hero.subtitle;
+            document.querySelector('.about-hero').style.backgroundImage =
+                `linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('${aboutData.hero.backgroundImage}')`;
+        }
+
+        // Render Content Section
+        function renderContent() {
+            document.getElementById('contentTitle').textContent = aboutData.content.title;
+            document.getElementById('contentSubtitle').textContent = aboutData.content.subtitle;
+            document.getElementById('aboutZoom').src = aboutData.content.image;
+
+            const paragraphsContainer = document.getElementById('contentParagraphs');
+            paragraphsContainer.innerHTML = '';
+
+            aboutData.content.paragraphs.forEach(para => {
+                const p = document.createElement('p');
+                p.innerHTML = para;
+                paragraphsContainer.appendChild(p);
+                paragraphsContainer.appendChild(document.createElement('br'));
+            });
+        }
+
+        // Render Icons
+        function renderIcons() {
+            const iconsContainer = document.getElementById('iconFeatures');
+            iconsContainer.innerHTML = '';
+
+            aboutData.icons.forEach(icon => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+            <i class="${icon.icon}"></i>
+            <p>${icon.text}</p>
+        `;
+                iconsContainer.appendChild(div);
+            });
+        }
+
+        // Render Cards
+        function renderCards() {
+            const cardsContainer = document.getElementById('infoCards');
+            cardsContainer.innerHTML = '';
+
+            aboutData.cards.forEach(card => {
+                const div = document.createElement('div');
+                div.className = 'about-card';
+                div.innerHTML = `
+            <img src="${card.image}" alt="${card.title}">
+            <h3>${card.title}</h3>
+            <p>${card.description}</p>
+        `;
+                cardsContainer.appendChild(div);
+            });
+        }
+
+        // Render More Button
+        function renderMoreButton() {
+            const btn = document.getElementById('moreBtn');
+            btn.textContent = aboutData.moreButton.text;
+            btn.href = aboutData.moreButton.link;
+        }
+
+        // Image Zoom Modal
+        function setupImageZoom() {
+            const aboutImg = document.getElementById('aboutZoom');
+            const imageModal = document.getElementById('imageModal');
+            const zoomedImage = document.getElementById('zoomedImage');
+            const closeImage = document.getElementById('closeImage');
+
+            if (aboutImg) {
+                aboutImg.addEventListener('click', () => {
+                    zoomedImage.src = aboutImg.src;
+                    imageModal.classList.add('active');
+                });
+            }
+
+            if (closeImage) {
+                closeImage.addEventListener('click', () => {
+                    imageModal.classList.remove('active');
+                });
+            }
+
+            if (imageModal) {
+                imageModal.addEventListener('click', (e) => {
+                    if (e.target === imageModal) imageModal.classList.remove('active');
+                });
+            }
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            renderHero();
+            renderContent();
+            renderIcons();
+            renderCards();
+            renderMoreButton();
+            setupImageZoom();
+        });
+    </script>
+
+</body>
+
+</html>

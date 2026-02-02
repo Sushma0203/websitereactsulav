@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Design - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="design-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <section class="design-section fullwidth">
+            <h1 class="design-title" id="designTitle">Our Design</h1>
+
+            <div class="design-card">
+                <!-- Image with fallback logic handled in JS -->
+                <img id="designImage" src="" alt="Design Image">
+
+                <!-- PDF link logic handled in JS -->
+                <div id="pdfAction"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="design-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER DESIGN DATA =================
+
+        function renderDesign() {
+            const titleEl = document.getElementById('designTitle');
+            const imageEl = document.getElementById('designImage');
+            const pdfActionEl = document.getElementById('pdfAction');
+
+            // Set Title
+            titleEl.textContent = designData.title || 'Our Design';
+
+            // Set Image with fallback
+            imageEl.src = designData.image || 'img/designs.jpg';
+            imageEl.alt = designData.title || 'Design Image';
+
+            // Handle PDF link rendering
+            if (designData.pdfAvailable && designData.pdfLink) {
+                pdfActionEl.innerHTML = `
+            <a href="${designData.pdfLink}" target="_blank">
+                View / Download Design PDF
+            </a>
+        `;
+            } else {
+                pdfActionEl.innerHTML = `
+            <a href="#" class="coming-soon" onclick="alert('PDF not available yet'); return false;">
+                PDF Coming Soon
+            </a>
+        `;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', renderDesign);
+    </script>
+
+</body>
+
+</html>

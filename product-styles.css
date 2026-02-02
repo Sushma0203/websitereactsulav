@@ -1,0 +1,134 @@
+/* ======================
+   PRODUCT DETAIL - PREMIUM STYLE
+====================== */
+.product-detail {
+    padding: 60px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.product-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.product-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-image img {
+    width: 100%;
+    border-radius: 12px;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.product-image img:hover {
+    transform: scale(1.02);
+}
+
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: #5b0f0f;
+    margin-bottom: 20px;
+}
+
+.product-info p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #4a0c0c;
+}
+
+.product-info p span {
+    font-weight: 600;
+}
+
+.add-cart-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 16px 35px;
+    background: linear-gradient(45deg, #d4af37, #b8922a);
+    color: #5b0f0f;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.2);
+}
+
+.add-cart-btn:hover {
+    background: #5b0f0f;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Reviews Section */
+.product-reviews {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #5b0f0f;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f6f4f0;
+    padding-bottom: 10px;
+}
+
+.testimonial-card {
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    border-left: 5px solid #d4af37;
+    transition: 0.3s;
+}
+
+.testimonial-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.testimonial-card span {
+    font-weight: 700;
+    color: #5b0f0f;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-container {
+        padding: 20px;
+    }
+
+    .product-info h1 {
+        font-size: 28px;
+    }
+}

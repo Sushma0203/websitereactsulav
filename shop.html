@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Our Collection - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="shop-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <div class="shop-container">
+            <!-- SIDEBAR -->
+            <aside class="filter-sidebar">
+                <form id="filterForm">
+                    <div class="filter-group">
+                        <h3>Category</h3>
+                        <div class="filter-options" id="categoryFilters">
+                            <label class="filter-item">
+                                <input type="radio" name="category" value="all" checked>
+                                All Categories
+                            </label>
+                            <!-- Categories will be rendered here -->
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Metal Type</h3>
+                        <div class="filter-options">
+                            <label class="filter-item">
+                                <input type="radio" name="metal" value="all" checked>
+                                All Metals
+                            </label>
+                            <label class="filter-item">
+                                <input type="radio" name="metal" value="Gold">
+                                Gold
+                            </label>
+                            <label class="filter-item">
+                                <input type="radio" name="metal" value="Silver">
+                                Silver
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Purity</h3>
+                        <div class="filter-options">
+                            <label class="filter-item">
+                                <input type="checkbox" name="purity" value="24K gold">
+                                24K Gold
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="purity" value="22K gold">
+                                22K Gold
+                            </label>
+                            <label class="filter-item">
+                                <input type="checkbox" name="purity" value="925">
+                                Sterling Silver (925)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h3>Price Range</h3>
+                        <div class="price-range">
+                            <div class="price-inputs">
+                                <input type="number" id="minPrice" placeholder="Min">
+                                <span>-</span>
+                                <input type="number" id="maxPrice" placeholder="Max">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-filter">Apply Filters</button>
+                    <button type="button" id="clearFilters"
+                        style="width: 100%; background: none; border: none; color: #777; font-size: 0.9rem; cursor: pointer; text-decoration: underline; margin-top: 15px;">Clear
+                        All</button>
+                </form>
+            </aside>
+
+            <!-- CONTENT -->
+            <main class="shop-content">
+                <div class="product-grid" id="productGrid">
+                    <!-- Products will be rendered here -->
+                </div>
+            </main>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="cart-data.js"></script> <!-- For CartManager -->
+    <script src="shop-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER SHOP =================
+
+        function renderCategories() {
+            const container = document.getElementById('categoryFilters');
+            container.innerHTML += shopData.categories.map(cat => `
+        <label class="filter-item">
+            <input type="radio" name="category" value="${cat.name}">
+            ${cat.name}
+        </label>
+    `).join('');
+        }
+
+        function renderProducts(filteredProducts) {
+            const container = document.getElementById('productGrid');
+
+            if (filteredProducts.length === 0) {
+                container.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 100px 0;">
+                <p style="font-size: 1.2rem; color: #777;">No products found matching your filters.</p>
+                <button type="button" onclick="resetFilters()" style="color: #d4af37; background: none; border: none; text-decoration: underline; cursor: pointer; font-size: 1.1rem; margin-top: 10px;">Clear all filters</button>
+            </div>
+        `;
+                return;
+            }
+
+            container.innerHTML = filteredProducts.map(p => `
+        <div class="product-card">
+            <div class="product-image">
+                <span class="badge ${p.metal_type === 'Gold' ? 'badge-gold' : 'badge-silver'}">${p.metal_type}</span>
+                <img src="${p.image}" alt="${p.name}" onerror="this.src='img/bg.jpg'">
+            </div>
+            <div class="product-info">
+                <h3>${p.name}</h3>
+                <div class="product-meta">
+                    <span>${p.weight}</span>
+                    ${p.purity ? `<span>• ${p.purity}</span>` : ''}
+                </div>
+                <div class="product-price">
+                    ${p.price ? 'Rs. ' + p.price.toLocaleString() : 'Price on Request'}
+                </div>
+                <button onclick="bookNow(${p.id})" class="btn-book">Book Now</button>
+            </div>
+        </div>
+    `).join('');
+        }
+
+        function filterProducts() {
+            const form = document.getElementById('filterForm');
+            const selectedCategory = form.querySelector('input[name="category"]:checked').value;
+            const selectedMetal = form.querySelector('input[name="metal"]:checked').value;
+            const selectedPurities = Array.from(form.querySelectorAll('input[name="purity"]:checked')).map(cb => cb.value.toLowerCase());
+            const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+
+            const filtered = shopData.products.filter(p => {
+                const catMatch = selectedCategory === 'all' || p.category === selectedCategory;
+                const metalMatch = selectedMetal === 'all' || p.metal_type === selectedMetal;
+
+                // Purity match: if no purity selected, all match. Otherwise, check if product purity is in selected list
+                const purityMatch = selectedPurities.length === 0 || (p.purity && selectedPurities.some(sp => p.purity.toLowerCase().includes(sp)));
+
+                // Price match: count Price on Request as 0 for min comparison and always match max if no price
+                const price = p.price || 0;
+                const priceMatch = price >= minPrice && price <= maxPrice;
+
+                return catMatch && metalMatch && purityMatch && priceMatch;
+            });
+
+            renderProducts(filtered);
+        }
+
+        function resetFilters() {
+            const form = document.getElementById('filterForm');
+            form.reset();
+            renderProducts(shopData.products);
+        }
+
+        function bookNow(productId) {
+            const product = shopData.products.find(p => p.id === productId);
+            if (!product) return;
+
+            // Create cart item
+            const item = {
+                id: product.id,
+                name: product.name,
+                image: product.image,
+                tola: parseFloat(product.weight.split(' ')[0]) || 0,
+                quantity: 1
+            };
+
+            if (typeof CartManager !== 'undefined') {
+                CartManager.addItem(item);
+                alert(`✅ ${product.name} added to booking!`);
+                window.location.href = 'cart.html';
+            } else {
+                alert("Booking system error. Please try again later.");
+            }
+        }
+
+        // Event Listeners
+        document.getElementById('filterForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            filterProducts();
+        });
+
+        document.getElementById('clearFilters').addEventListener('click', resetFilters);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderProducts(shopData.products);
+        });
+    </script>
+
+</body>
+
+</html>

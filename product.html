@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Detail - Harati Maa Jyasa Pasa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="product-styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <div class="logo">
+                <img src="img/s.png" alt="Harati Gold Logo" id="logoZoom">
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <nav class="nav-links">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop Now</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+                <a href="login.html" class="admin-btn">Login</a>
+            </nav>
+
+            <div class="nav-datetime" id="navDateTime"></div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <section class="product-detail fullwidth">
+            <div class="product-container">
+                <!-- Product Image -->
+                <div class="product-image">
+                    <img id="productImg" src="" alt="Product Image" class="zoomable">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 id="productName"></h1>
+                    <p id="productWeight"></p>
+                    <p id="productCategory"></p>
+                    <p id="productDescription"
+                        style="margin-top: 20px; color: #666; font-size: 16px; line-height: 1.6;"></p>
+
+                    <a href="cart.html" id="addToCartBtn" class="add-cart-btn">Add for Booking</a>
+                </div>
+            </div>
+
+            <!-- Reviews -->
+            <section class="product-reviews">
+                <h2 class="section-title">Customer Reviews</h2>
+                <div id="reviewsList"></div>
+            </section>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div>
+                <p class="footer-title">Harati Maa Jyasa Pasa</p>
+                <p class="footer-copy">© 2025 All Rights Reserved</p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="shop.html">Shop</a>
+                <a href="design.html">Designs</a>
+                <a href="services.html">Services</a>
+                <a href="faq.html">FAQ</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html">Book</a>
+                <a href="reviews.html">Review</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="mailto:haratimaajp@gmail.com" title="Email Us">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.facebook.com/haratimaajyasapasa" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/haratima_jp/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@haratima_jp?_r=1&_t=ZT-92SExMqDllO" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGO ZOOM MODAL -->
+    <div class="logo-modal" id="logoModal">
+        <span class="logo-close" id="closeLogo">&times;</span>
+        <img src="img/s.png" alt="Harati Logo Zoomed">
+    </div>
+
+    <!-- IMAGE ZOOM MODAL (Standard) -->
+    <div id="imageModal"
+        style="position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: none; align-items: center; justify-content: center; z-index: 10000; cursor: zoom-out;">
+        <img src="" id="zoomedImage"
+            style="max-width: 90%; max-height: 90%; border-radius: 12px; box-shadow: 0 0 50px rgba(0,0,0,0.5);">
+        <span
+            style="position: absolute; top: 30px; right: 40px; color: #fff; font-size: 40px; cursor: pointer;">&times;</span>
+    </div>
+
+    <!-- Load Data & Scripts -->
+    <script src="cart-data.js"></script> <!-- Required for adding to cart logic -->
+    <script src="product-data.js"></script>
+    <script src="main.js"></script>
+
+    <script>
+        // ================= RENDER PRODUCT DATA =================
+
+        function renderProductDetail() {
+            document.getElementById('productName').textContent = productData.name;
+            document.getElementById('productWeight').innerHTML = `<span>Weight:</span> ${productData.weight}`;
+            document.getElementById('productCategory').innerHTML = `<span>Category:</span> ${productData.category}`;
+            document.getElementById('productDescription').textContent = productData.description;
+
+            const imgEl = document.getElementById('productImg');
+            imgEl.src = productData.image;
+            imgEl.alt = productData.name;
+
+            const reviewsList = document.getElementById('reviewsList');
+            if (productData.reviews && productData.reviews.length > 0) {
+                reviewsList.innerHTML = productData.reviews.map(review => `
+            <div class="testimonial-card">
+                <p>"${review.comment}"</p>
+                <span>- ${review.name}</span>
+            </div>
+        `).join('');
+            } else {
+                reviewsList.innerHTML = '<p>No reviews yet.</p>';
+            }
+        }
+
+        // Add to Cart Logic
+        document.getElementById('addToCartBtn').addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Create item object for CartManager
+            const item = {
+                id: productData.id,
+                name: productData.name,
+                image: productData.image,
+                tola: parseFloat(productData.weight.split(' ')[0]) || 0, // Extract number from "25.5 Tola"
+                quantity: 1
+            };
+
+            // Use CartManager from cart-data.js (or similar)
+            if (typeof CartManager !== 'undefined') {
+                CartManager.addItem(item);
+                alert(`✅ ${productData.name} added to booking!`);
+                window.location.href = 'cart.html';
+            } else {
+                alert("Cart system not loaded. Item added to local storage (demo).");
+                // Fallback or demo behavior
+                window.location.href = 'cart.html';
+            }
+        });
+
+        // Image Zoom Setup (Integrated with main.js logic or standalone)
+        function setupProductZoom() {
+            const modal = document.getElementById('imageModal');
+            const zoomedImg = document.getElementById('zoomedImage');
+            const img = document.getElementById('productImg');
+
+            img.addEventListener('click', () => {
+                zoomedImg.src = img.src;
+                modal.style.display = 'flex';
+            });
+
+            modal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProductDetail();
+            setupProductZoom();
+        });
+    </script>
+
+</body>
+
+</html>
