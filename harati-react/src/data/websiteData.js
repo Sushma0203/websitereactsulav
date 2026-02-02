@@ -6,7 +6,7 @@ export const websiteData = {
         phone: "९८४१२३४५६७",
         buttonText: "अहिल्यै किन्नुहोस्",
         buttonLink: "/shop",
-        backgroundImage: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop" // Temporary placeholder
+        backgroundImage: "/img/bg.jpg"
     },
     navLinks: [
         { name: "गृह", link: "/" },
@@ -20,18 +20,21 @@ export const websiteData = {
         { name: "प्रतिक्रिया", link: "/reviews" }
     ],
     products: [
-        { id: 1, name: "सुनको हार", weight: "२ तोला", image: "https://images.unsplash.com/photo-1599643478518-a744c5ff7efd?q=80&w=1974&auto=format&fit=crop" },
-        { id: 2, name: "शिरबन्दी", weight: "१ तोला", image: "https://images.unsplash.com/photo-1630030538573-ce972bcb6020?q=80&w=1974&auto=format&fit=crop" },
-        { id: 3, name: "सुनको चुरा", weight: "३ तोला", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1974&auto=format&fit=crop" }
+        { id: 1, name: "सुनको हार", weight: "२ तोला", image: "/img/shop/necklace1.jpg" },
+        { id: 2, name: "शिरबन्दी", weight: "१ तोला", image: "/img/shop/necklace2.jpg" },
+        { id: 3, name: "सुनको चुरा", weight: "३ तोला", image: "/img/shop/bracelet1.jpg" },
+        { id: 4, name: "कम्बरबन्दी", weight: "४ तोला", image: "/img/shop/kamarbandi.jpg" },
+        { id: 5, name: "शिरबन्दी (विशेष)", weight: "१.५ तोला", image: "/img/shop/necklace3.jpg" },
+        { id: 6, name: "सुनको औंठी", weight: "०.५ तोला", image: "/img/shop/ring1.jpg" }
     ],
     categories: [
-        { name: "हार", image: "https://images.unsplash.com/photo-1599643478518-a744c5ff7efd?q=80&w=1974&auto=format&fit=crop", link: "/shop?cat=necklace" },
-        { name: "औंठी", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=2070&auto=format&fit=crop", link: "/shop?cat=ring" },
-        { name: "कानको झुम्का", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1974&auto=format&fit=crop", link: "/shop?cat=earrings" }
+        { name: "हार", image: "/img/shop/necklace1.jpg", link: "/shop?cat=necklace" },
+        { name: "औंठी", image: "/img/shop/ring1.jpg", link: "/shop?cat=ring" },
+        { name: "कानको झुम्का", image: "/img/shop/earring1.jpg", link: "/shop?cat=earrings" }
     ],
     offers: [
-        { title: "नयाँ वर्षको विशेष छुट!", image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop" },
-        { title: "वेडिङ सिजन प्याकेज", image: "https://images.unsplash.com/photo-1630030538573-ce972bcb6020?q=80&w=1974&auto=format&fit=crop" }
+        { title: "नयाँ वर्षको विशेष छुट!", image: "/img/about/jewellery.jpg" },
+        { title: "वेडिङ सिजन प्याकेज", image: "/img/shop/necklace2.jpg" }
     ],
     testimonials: [
         { name: "रिता शर्मा", comment: "यहाँको गहनाको गुणस्तर र डिजाइन अत्यन्तै राम्रो छ।" },

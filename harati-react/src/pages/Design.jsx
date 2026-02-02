@@ -2,15 +2,16 @@ import React from 'react';
 
 const Design = () => {
     const designs = [
-        { title: "न्युवारी परम्परागत हार", image: "https://via.placeholder.com/400x300?text=Traditional+Necklace" },
-        { title: "आधुनिक सुनको औंठी", image: "https://via.placeholder.com/400x300?text=Modern+Ring" },
-        { title: "विवाह विशेष सेट", image: "https://via.placeholder.com/400x300?text=Wedding+Set" },
-        { title: "सिम्पल टप्स", image: "https://via.placeholder.com/400x300?text=Simple+Tops" }
+        { title: "न्युवारी परम्परागत हार", image: "/img/shop/necklace1.jpg" },
+        { title: "आधुनिक सुनको औंठी", image: "/img/shop/ring1.jpg" },
+        { title: "विवाह विशेष सेट", image: "/img/shop/necklace4.jpg" },
+        { title: "सिम्पल टप्स", image: "/img/shop/earring1.jpg" }
     ];
 
     return (
         <main className="design-page">
             <section className="design-hero hero fullwidth">
+                <img src="/img/designs.jpg" alt="Designs BG" className="bg-img" />
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
                     <h1>हाम्रा डिजाइनहरू</h1>
