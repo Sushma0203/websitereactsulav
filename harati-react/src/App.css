@@ -55,18 +55,35 @@ h4,
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
+    width: 100%;
     z-index: 1000;
     border-bottom: 1px solid rgba(197, 160, 89, 0.3);
     padding: 10px 0;
 }
 
 .nav-inner {
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
     padding: 10px 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle-checkbox {
+    display: none !important;
+}
+
+.hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--premium-gold);
 }
 
 .logo img {
@@ -240,6 +257,8 @@ h4,
 .testimonials {
     padding: 100px 40px;
     text-align: center;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* ================= PRODUCT CARDS ================= */
@@ -247,6 +266,7 @@ h4,
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 40px;
+    width: 100%;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -468,7 +488,7 @@ h4,
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 80%;
         max-width: 400px;
         height: 100vh;
@@ -480,20 +500,23 @@ h4,
         transition: var(--transition-smooth);
         z-index: 2000;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+        transform: translateX(100%);
+        visibility: hidden;
     }
 
     .nav-links.active {
-        right: 0;
+        transform: translateX(0);
+        visibility: visible;
     }
 
     .nav-links a {
         font-size: 20px;
+        width: 100%;
+        text-align: center;
     }
 
     .hamburger {
-        display: block !important;
-        color: var(--premium-gold);
-        font-size: 24px;
+        display: flex !important;
         cursor: pointer;
         z-index: 2100;
         order: 3;
@@ -504,7 +527,7 @@ h4,
     }
 
     .logo {
-        flex: 1;
+        flex: 0 1 auto;
     }
 
     .logo img {
@@ -539,7 +562,7 @@ h4,
     }
 
     .carousel {
-        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 20px;
     }
 
