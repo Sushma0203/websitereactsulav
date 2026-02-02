@@ -11,7 +11,7 @@ import FAQ from './pages/FAQ';
 import Contact from './pages/Contact';
 import Book from './pages/Book';
 import Reviews from './pages/Reviews';
-import Login from './pages/Login';
+import MoreInfo from './pages/MoreInfo';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -30,7 +30,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/book" element={<Book />} />
           <Route path="/reviews" element={<Reviews />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/more-info" element={<MoreInfo />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

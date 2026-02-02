@@ -2,10 +2,10 @@ import React from 'react';
 
 const FAQ = () => {
     const faqs = [
-        { q: "What is the purity standard of your gold?", a: "We exclusively craft in 24K and 22K hallmarks to ensure the highest global standards of purity." },
-        { q: "Do you accept custom design commissions?", a: "Yes, our master artisans specialize in bringing your personal visions to life through bespoke commissions." },
-        { q: "Can I exchange or upgrade my existing jewelry?", a: "We offer competitive market rates for upgrades and exchanges of certified gold jewelry." },
-        { q: "What are your atelier's operating hours?", a: "Our boutique is open daily from 10:00 AM to 7:00 PM for your convenience." }
+        { q: "How pure is your gold?", a: "We use 24K and 22K gold to make sure it is of the highest quality." },
+        { q: "Can I order custom designs?", a: "Yes, our skilled artists can make custom designs based on your ideas." },
+        { q: "Can I exchange or upgrade my jewelry?", a: "We offer good rates if you want to trade or upgrade your certified gold jewelry." },
+        { q: "What are your shop's opening hours?", a: "Our shop is open every day from 10:00 AM to 7:00 PM." }
     ];
 
     return (
@@ -13,8 +13,8 @@ const FAQ = () => {
             <section className="hero fullwidth" style={{ height: '40vh' }}>
                 <div className="hero-overlay" style={{ background: 'var(--primary-maroon)' }}></div>
                 <div className="hero-content">
-                    <h1>Curated Assistance</h1>
-                    <p>Find answers to your most frequent inquiries.</p>
+                    <h1>Help & Support</h1>
+                    <p>Common questions and answers.</p>
                 </div>
             </section>
 

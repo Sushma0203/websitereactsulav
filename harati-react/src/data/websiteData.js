@@ -21,11 +21,11 @@ export const websiteData = {
     ],
     products: [
         { id: 1, name: "Gold Necklace", weight: "2 Tola", image: "/img/shop/necklace1.jpg" },
-        { id: 2, name: "Shirbandi", weight: "1 Tola", image: "/img/shop/necklace2.jpg" },
+        { id: 2, name: "Rani Haar", weight: "5 Tola", image: "/img/shop/necklace2.jpg" },
         { id: 3, name: "Gold Bangle", weight: "3 Tola", image: "/img/shop/bracelet1.jpg" },
         { id: 4, name: "Kamarbandi", weight: "4 Tola", image: "/img/shop/kamarbandi.jpg" },
-        { id: 5, name: "Shirbandi (Special)", weight: "1.5 Tola", image: "/img/shop/necklace3.jpg" },
-        { id: 6, name: "Gold Ring", weight: "0.5 Tola", image: "/img/shop/ring1.jpg" }
+        { id: 5, name: "9 gedi", weight: "1.5 Tola", image: "/img/shop/necklace3.jpg" },
+        { id: 6, name: "Gold Ring", weight: "2.5 Tola", image: "/img/shop/ring1.jpg" }
     ],
     categories: [
         { name: "Necklace", image: "/img/shop/necklace1.jpg", link: "/shop?cat=necklace" },

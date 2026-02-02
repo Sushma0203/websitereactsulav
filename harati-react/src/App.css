@@ -297,7 +297,12 @@ h4,
 }
 
 .product-card:hover img {
-    transform: scale(1.03);
+    transform: scale(1.1);
+}
+
+.zoomable:hover {
+    transform: scale(1.1);
+    cursor: zoom-in;
 }
 
 .product-card h3 {
@@ -369,6 +374,7 @@ h4,
     border-radius: 20px;
     box-shadow: var(--shadow-premium);
     position: relative;
+    color: var(--text-dark);
 }
 
 .testimonial-card::before {
@@ -401,6 +407,8 @@ h4,
     background: var(--primary-maroon);
     color: #fff;
     padding: 80px 40px 40px;
+    border-top: 5px solid var(--premium-gold);
+    margin-top: 60px;
 }
 
 .footer-content {

@@ -8,13 +8,13 @@ const Shop = () => {
                 <img src="/img/shop/necklace2.jpg" alt="Harati Collection" className="bg-img" />
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <h1>The Masterpiece Gallery</h1>
-                    <p>Discover a treasury of exquisite jewelry curated for excellence.</p>
+                    <h1>Shop Our Designs</h1>
+                    <p>Browse our full collection of handcrafted gold jewelry.</p>
                 </div>
             </section>
 
             <section className="product-section section fullwidth" style={{ backgroundColor: '#fff' }}>
-                <h2 className="section-title">All Curations</h2>
+                <h2 className="section-title">Our Collection</h2>
                 <div className="carousel">
                     {websiteData.products.map(product => (
                         <div key={product.id} className="product-card">
@@ -24,7 +24,7 @@ const Shop = () => {
                             <div className="price-note" style={{ marginBottom: '20px', fontSize: '14px', opacity: 0.7 }}>
                                 *Pricing subject to daily market gold rate
                             </div>
-                            <button className="add-booking-btn">Secure for Booking</button>
+                            <button className="add-booking-btn">View</button>
                         </div>
                     ))}
                 </div>

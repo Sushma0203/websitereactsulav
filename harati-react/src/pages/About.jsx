@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -37,6 +38,10 @@ const About = () => {
                             <h3 style={{ fontSize: '22px' }}>Ancestral Trust</h3>
                             <p style={{ fontSize: '15px', color: '#777' }}>A legacy built on trust and relationships over decades.</p>
                         </div>
+                    </div>
+
+                    <div style={{ marginTop: '50px' }}>
+                        <Link to="/more-info" className="hero-btn">More Info</Link>
                     </div>
                 </div>
             </section>

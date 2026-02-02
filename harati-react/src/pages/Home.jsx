@@ -30,7 +30,7 @@ const Home = () => {
                             <div className="price-note" style={{ marginBottom: '20px', fontSize: '14px', opacity: 0.7 }}>
                                 *Pricing subject to daily market gold rate
                             </div>
-                            <button className="add-booking-btn">Reserve Now</button>
+                            <button className="add-booking-btn">View</button>
                         </div>
                     ))}
                 </div>

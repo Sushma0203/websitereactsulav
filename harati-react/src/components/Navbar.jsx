@@ -36,7 +36,6 @@ const Navbar = () => {
                             {link.name}
                         </NavLink>
                     ))}
-                    <NavLink to="/login" className="admin-btn" onClick={() => setMenuOpen(false)}>Login</NavLink>
                 </nav>
 
                 <div className="nav-datetime">{dateTime}</div>
