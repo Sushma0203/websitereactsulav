@@ -12,6 +12,7 @@ import Contact from './pages/Contact';
 import Book from './pages/Book';
 import Reviews from './pages/Reviews';
 import Login from './pages/Login';
+import NotFound from './pages/NotFound';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/book" element={<Book />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/login" element={<Login />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
