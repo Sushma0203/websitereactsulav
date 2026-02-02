@@ -1,0 +1,7 @@
+{
+  "name": "harati-root",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm --prefix harati-react install && npm --prefix harati-react run build"
+  }
+}
