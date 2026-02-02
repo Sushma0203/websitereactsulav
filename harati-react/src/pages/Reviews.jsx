@@ -4,36 +4,35 @@ import { websiteData } from '../data/websiteData';
 const Reviews = () => {
     return (
         <main className="reviews-page">
-            <section className="reviews-hero hero fullwidth">
-                <div className="hero-overlay"></div>
+            <section className="hero fullwidth" style={{ height: '40vh' }}>
+                <div className="hero-overlay" style={{ background: 'var(--primary-maroon)' }}></div>
                 <div className="hero-content">
-                    <h1>Customer Reviews</h1>
-                    <p>See what our valued customers have to say.</p>
+                    <h1>Collector Chronicles</h1>
+                    <p>Echoes of trust and satisfaction from our distinguished clientele.</p>
                 </div>
             </section>
 
-            <section className="reviews-content section fullwidth" style={{ padding: '40px 20px' }}>
-                <div className="testimonial-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
+            <section className="product-section section fullwidth" style={{ backgroundColor: '#fff' }}>
+                <div className="carousel">
                     {websiteData.testimonials.map((test, index) => (
-                        <div key={index} className="testimonial-card" style={{ width: 'auto' }}>
+                        <div key={index} className="testimonial-card">
                             <p>"{test.comment}"</p>
-                            <span>- {test.name}</span>
+                            <span>— {test.name}</span>
                         </div>
                     ))}
-                    {/* Placeholder review */}
-                    <div className="testimonial-card" style={{ width: 'auto' }}>
-                        <p>"The best jewelry designs in Patan can be found here."</p>
-                        <span>- Sunil Shakya</span>
+                    <div className="testimonial-card">
+                        <p>"The artisanal depth and service levels at Harati Maa are truly unmatched in Nepal."</p>
+                        <span>— Sunil Shakya</span>
                     </div>
                 </div>
 
-                <div style={{ marginTop: '50px', textAlign: 'center' }}>
-                    <h2 style={{ color: '#5b0f0f', marginBottom: '20px' }}>Leave Your Feedback</h2>
-                    <div style={{ maxWidth: '600px', margin: '0 auto', background: '#fff', padding: '30px', borderRadius: '15px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                <div style={{ marginTop: '120px' }}>
+                    <h2 className="section-title">Share Your Experience</h2>
+                    <div style={{ maxWidth: '650px', margin: '0 auto', background: '#fff', padding: '60px', borderRadius: '30px', boxShadow: 'var(--shadow-premium)', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
                         <form>
-                            <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '12px', marginBottom: '15px', border: '1px solid #ddd', borderRadius: '8px' }} />
-                            <textarea placeholder="Feedback" rows="4" style={{ width: '100%', padding: '12px', marginBottom: '15px', border: '1px solid #ddd', borderRadius: '8px' }}></textarea>
-                            <button type="submit" className="add-booking-btn" style={{ width: '100%' }}>Send Feedback</button>
+                            <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '15px', marginBottom: '20px', border: '1px solid #eee', borderRadius: '12px', background: '#f9f9f9', fontFamily: 'inherit' }} />
+                            <textarea placeholder="Your reflection..." rows="4" style={{ width: '100%', padding: '15px', marginBottom: '40px', border: '1px solid #eee', borderRadius: '12px', background: '#f9f9f9', fontFamily: 'inherit' }}></textarea>
+                            <button type="submit" className="add-booking-btn" style={{ padding: '20px' }}>Publish Feedback</button>
                         </form>
                     </div>
                 </div>

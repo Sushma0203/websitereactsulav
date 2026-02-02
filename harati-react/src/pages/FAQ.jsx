@@ -2,27 +2,27 @@ import React from 'react';
 
 const FAQ = () => {
     const faqs = [
-        { q: "What karat is your gold?", a: "We only make 24 and 22 karat pure gold jewelry." },
-        { q: "Can jewelry be made to order?", a: "Yes, we make jewelry according to your own design or interest." },
-        { q: "Do you exchange old gold?", a: "Yes, we provide the facility for exchanging or purchasing old gold according to the current market rate." },
-        { q: "What time is the shop open?", a: "Our shop is open seven days a week from 10 am to 7 pm." }
+        { q: "What is the purity standard of your gold?", a: "We exclusively craft in 24K and 22K hallmarks to ensure the highest global standards of purity." },
+        { q: "Do you accept custom design commissions?", a: "Yes, our master artisans specialize in bringing your personal visions to life through bespoke commissions." },
+        { q: "Can I exchange or upgrade my existing jewelry?", a: "We offer competitive market rates for upgrades and exchanges of certified gold jewelry." },
+        { q: "What are your atelier's operating hours?", a: "Our boutique is open daily from 10:00 AM to 7:00 PM for your convenience." }
     ];
 
     return (
         <main className="faq-page">
-            <section className="faq-hero hero fullwidth">
-                <div className="hero-overlay"></div>
+            <section className="hero fullwidth" style={{ height: '40vh' }}>
+                <div className="hero-overlay" style={{ background: 'var(--primary-maroon)' }}></div>
                 <div className="hero-content">
-                    <h1>Frequently Asked Questions (FAQ)</h1>
-                    <p>You can find answers to some of your questions here.</p>
+                    <h1>Curated Assistance</h1>
+                    <p>Find answers to your most frequent inquiries.</p>
                 </div>
             </section>
 
-            <section className="faq-content section fullwidth" style={{ maxWidth: '800px', margin: '0 auto', padding: '40px 20px' }}>
+            <section className="product-section fullwidth" style={{ maxWidth: '900px', margin: '0 auto' }}>
                 {faqs.map((faq, index) => (
-                    <div key={index} style={{ marginBottom: '25px', padding: '20px', background: '#fff', borderRadius: '12px', boxShadow: '0 5px 15px rgba(0,0,0,0.05)' }}>
-                        <h3 style={{ color: '#5b0f0f', marginBottom: '10px' }}>Q: {faq.q}</h3>
-                        <p style={{ color: '#555', borderLeft: '3px solid #d4af37', paddingLeft: '15px' }}>A: {faq.a}</p>
+                    <div key={index} style={{ marginBottom: '30px', padding: '30px', background: '#fff', borderRadius: '20px', boxShadow: 'var(--shadow-premium)', textAlign: 'left' }}>
+                        <h3 style={{ marginBottom: '15px' }}>{faq.q}</h3>
+                        <p style={{ color: '#666', borderLeft: '3px solid var(--premium-gold)', paddingLeft: '20px' }}>{faq.a}</p>
                     </div>
                 ))}
             </section>

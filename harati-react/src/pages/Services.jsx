@@ -2,29 +2,29 @@ import React from 'react';
 
 const Services = () => {
     const services = [
-        { title: "Jewelry Making", description: "New jewelry is made to order according to your interest." },
-        { title: "Repair & Maintenance", description: "Efficient repair of old and damaged jewelry." },
-        { title: "Gold Testing", description: "Purity of gold is tested using state-of-the-art technology." },
-        { title: "Design Consultation", description: "Assisting in jewelry selection for weddings and special occasions." }
+        { title: "Bespoke Jewelry Crafting", description: "Individually handcrafted masterpieces designed to your unique vision." },
+        { title: "Artisanal Restoration", description: "Meticulous repair and preservation of your most cherished heirlooms." },
+        { title: "Purity Certification", description: "Advanced gold testing technology ensuring 100% authentic purity." },
+        { title: "Bridal Consultation", description: "Personalized styling and curation for weddings and regal occasions." }
     ];
 
     return (
         <main className="services-page">
-            <section className="services-hero hero fullwidth">
-                <img src="/img/home/necklace.jpg" alt="Services BG" className="bg-img" />
+            <section className="hero fullwidth" style={{ height: '50vh' }}>
+                <img src="/img/home/necklace.jpg" alt="Harati Services" className="bg-img" />
                 <div className="hero-overlay"></div>
                 <div className="hero-content">
-                    <h1>Our Services</h1>
-                    <p>We guarantee quality service and complete satisfaction.</p>
+                    <h1>Exceptional Services</h1>
+                    <p>Dedicated to excellence and your complete satisfaction.</p>
                 </div>
             </section>
 
-            <section className="services-list section fullwidth">
-                <div className="service-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem', padding: '2rem' }}>
+            <section className="product-section section fullwidth" style={{ backgroundColor: '#fff' }}>
+                <div className="carousel">
                     {services.map((service, index) => (
-                        <div key={index} className="service-card" style={{ background: 'rgba(255,255,255,0.05)', padding: '2rem', borderRadius: '15px', border: '1px solid rgba(255,215,0,0.3)', textAlign: 'center' }}>
-                            <h3 style={{ color: '#ffd700', marginBottom: '1rem' }}>{service.title}</h3>
-                            <p>{service.description}</p>
+                        <div key={index} className="product-card" style={{ textAlign: 'center', padding: '40px' }}>
+                            <h3 style={{ fontSize: '26px', marginBottom: '20px' }}>{service.title}</h3>
+                            <p style={{ color: '#666', fontSize: '16px' }}>{service.description}</p>
                         </div>
                     ))}
                 </div>
