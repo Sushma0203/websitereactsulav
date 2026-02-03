@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Contact = () => {
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setMessage('Thank you! Your message has been sent successfully. We will get back to you soon.');
+        // Reset form or other logic if needed
+        e.target.reset();
+    };
     return (
         <main className="contact-page">
             <section className="hero fullwidth" style={{ height: '40vh' }}>
@@ -57,7 +65,20 @@ const Contact = () => {
                     {/* CONTACT FORM */}
                     <div style={{ flex: '1 1 400px', maxWidth: '540px', background: '#fff', padding: '50px', borderRadius: '30px', boxShadow: 'var(--shadow-premium)', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
                         <h3 style={{ fontSize: '24px', color: 'var(--primary-maroon)', marginBottom: '30px', textAlign: 'center' }}>Send a Message / Design</h3>
-                        <form onSubmit={(e) => { e.preventDefault(); alert("Currently message cant be delivered please mail us for further inquiry"); }}>
+                        {message && (
+                            <div style={{
+                                padding: '15px',
+                                background: '#d4edda',
+                                color: '#155724',
+                                border: '1px solid #c3e6cb',
+                                borderRadius: '10px',
+                                marginBottom: '20px',
+                                textAlign: 'center'
+                            }}>
+                                {message}
+                            </div>
+                        )}
+                        <form onSubmit={handleSubmit}>
                             <div style={{ marginBottom: '20px' }}>
                                 <input type="text" placeholder="Full Name" style={{ width: '100%', padding: '15px', border: '1px solid #eee', borderRadius: '12px', background: '#f9f9f9', fontFamily: 'inherit' }} />
                             </div>

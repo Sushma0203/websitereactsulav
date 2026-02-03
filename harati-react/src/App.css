@@ -664,3 +664,105 @@ h4,
         transform: scale(1);
     }
 }
+
+/* ================= SHOP SIDEBAR & LAYOUT ================= */
+.shop-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 40px;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.filter-sidebar {
+    width: 280px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-premium);
+    position: sticky;
+    top: 120px;
+    border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.filter-group {
+    margin-bottom: 30px;
+}
+
+.filter-group h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: var(--primary-maroon);
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-inputs span {
+    color: #888;
+}
+
+.filter-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.apply-btn {
+    background: var(--primary-maroon);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.apply-btn:hover {
+    background: var(--premium-gold);
+}
+
+.clear-btn {
+    background: transparent;
+    color: var(--primary-maroon);
+    border: 1px solid rgba(61, 10, 10, 0.2);
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.clear-btn:hover {
+    background: rgba(61, 10, 10, 0.05);
+    border-color: var(--primary-maroon);
+}
+
+/* Responsive Shop */
+@media (max-width: 900px) {
+    .shop-container {
+        flex-direction: column;
+    }
+
+    .filter-sidebar {
+        width: 100%;
+        position: static;
+        margin-bottom: 40px;
+    }
+}

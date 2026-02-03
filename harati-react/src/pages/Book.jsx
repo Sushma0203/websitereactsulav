@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Book = () => {
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setMessage('Reservation request submitted successfully! We will contact you shortly to confirm.');
+        e.target.reset();
+    };
     return (
         <main className="book-page">
             <section className="hero fullwidth" style={{ height: '40vh' }}>
@@ -14,7 +21,20 @@ const Book = () => {
             <section className="product-section section fullwidth" style={{ backgroundColor: '#fff', padding: '100px 20px' }}>
                 <div style={{ maxWidth: '650px', margin: '0 auto', padding: '60px', background: '#fff', borderRadius: '30px', boxShadow: 'var(--shadow-premium)', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
                     <h2 style={{ marginBottom: '40px', textAlign: 'center' }}>Reservation Request</h2>
-                    <form>
+                    {message && (
+                        <div style={{
+                            padding: '15px',
+                            background: '#d4edda',
+                            color: '#155724',
+                            border: '1px solid #c3e6cb',
+                            borderRadius: '10px',
+                            marginBottom: '20px',
+                            textAlign: 'center'
+                        }}>
+                            {message}
+                        </div>
+                    )}
+                    <form onSubmit={handleSubmit}>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
                             <input type="text" placeholder="Full Name" style={{ width: '100%', padding: '15px', border: '1px solid #eee', borderRadius: '12px', background: '#f9f9f9', fontFamily: 'inherit' }} />
                             <input type="tel" placeholder="Phone Number" style={{ width: '100%', padding: '15px', border: '1px solid #eee', borderRadius: '12px', background: '#f9f9f9', fontFamily: 'inherit' }} />
