@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Reviews = () => {
+    const [message, setMessage] = useState('');
+
+    const handleButtonClick = () => {
+        setMessage('Currently not working, please mail us. Thank you.');
+    };
     const pastReviews = [
         {
             name: "Shanta Kumar Thapa",
@@ -58,7 +63,20 @@ const Reviews = () => {
                     <div style={{ marginBottom: '80px', textAlign: 'center' }}>
                         <h2 className="section-title">Share Your Experience</h2>
                         <div style={{ maxWidth: '600px', margin: '0 auto', background: 'var(--bg-cream)', padding: '40px', borderRadius: '30px', boxShadow: 'var(--shadow-premium)', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
-                            <form onSubmit={(e) => { e.preventDefault(); alert("Thank you for the review"); }}>
+                            {message && (
+                                <div style={{
+                                    padding: '15px',
+                                    background: '#d4edda',
+                                    color: '#155724',
+                                    border: '1px solid #c3e6cb',
+                                    borderRadius: '10px',
+                                    marginBottom: '20px',
+                                    textAlign: 'center'
+                                }}>
+                                    {message}
+                                </div>
+                            )}
+                            <form onSubmit={(e) => e.preventDefault()}>
                                 <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '15px', marginBottom: '20px', border: '1px solid #ddd', borderRadius: '12px', background: '#fff', fontFamily: 'inherit' }} />
                                 <div style={{ marginBottom: '20px', textAlign: 'left' }}>
                                     <label style={{ display: 'block', marginBottom: '10px', fontSize: '14px', fontWeight: '600' }}>Your Rating</label>
@@ -67,7 +85,7 @@ const Reviews = () => {
                                     </div>
                                 </div>
                                 <textarea placeholder="Write your review here..." rows="4" style={{ width: '100%', padding: '15px', marginBottom: '30px', border: '1px solid #ddd', borderRadius: '12px', background: '#fff', fontFamily: 'inherit' }}></textarea>
-                                <button type="submit" className="add-booking-btn" style={{ padding: '18px' }}>Submit Review</button>
+                                <button type="button" onClick={handleButtonClick} className="add-booking-btn" style={{ padding: '18px' }}>Submit Review</button>
                             </form>
                         </div>
                     </div>

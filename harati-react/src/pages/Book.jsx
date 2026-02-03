@@ -5,7 +5,7 @@ const Book = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMessage('Reservation request submitted successfully! We will contact you shortly to confirm.');
+        setMessage('Currently not working, please mail us. Thank you.');
         e.target.reset();
     };
     return (

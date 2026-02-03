@@ -5,7 +5,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setMessage('Thank you! Your message has been sent successfully. We will get back to you soon.');
+        setMessage('Currently not working, please mail us. Thank you.');
         // Reset form or other logic if needed
         e.target.reset();
     };
