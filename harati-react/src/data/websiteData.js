@@ -20,12 +20,15 @@ export const websiteData = {
         { name: "Reviews", link: "/reviews" }
     ],
     products: [
-        { id: 1, name: "Gold Necklace", weight: "2 Tola", image: "/img/shop/necklace1.jpg" },
-        { id: 2, name: "Rani Haar", weight: "5 Tola", image: "/img/shop/necklace2.jpg" },
-        { id: 3, name: "Gold Bangle", weight: "3 Tola", image: "/img/shop/bracelet1.jpg" },
-        { id: 4, name: "Kamarbandi", weight: "4 Tola", image: "/img/shop/kamarbandi.jpg" },
-        { id: 5, name: "9 gedi", weight: "1.5 Tola", image: "/img/shop/necklace3.jpg" },
-        { id: 6, name: "Gold Ring", weight: "2.5 Tola", image: "/img/shop/ring1.jpg" }
+        { id: 1, name: "Gold Necklace", weight: "2 Tola", image: "/img/shop/necklace1.jpg", category: "Necklaces", metal: "Gold", purity: "24K Gold", price: 150000 },
+        { id: 2, name: "Rani Haar", weight: "5 Tola", image: "/img/shop/necklace2.jpg", category: "Necklaces", metal: "Gold", purity: "22K Gold", price: 350000 },
+        { id: 3, name: "Gold Bangle", weight: "3 Tola", image: "/img/shop/bracelet1.jpg", category: "Bracelets", metal: "Gold", purity: "24K Gold", price: 210000 },
+        { id: 4, name: "Kamarbandi", weight: "4 Tola", image: "/img/shop/kamarbandi.jpg", category: "Others", metal: "Gold", purity: "22K Gold", price: 280000 },
+        { id: 5, name: "9 gedi", weight: "1.5 Tola", image: "/img/shop/necklace3.jpg", category: "Necklaces", metal: "Gold", purity: "24K Gold", price: 110000 },
+        { id: 6, name: "Gold Ring", weight: "2.5 Tola", image: "/img/shop/ring1.jpg", category: "Rings", metal: "Gold", purity: "22K Gold", price: 180000 },
+        { id: 7, name: "Silver Bracelet", weight: "1.5 Tola", image: "/img/shop/bracelet1.jpg", category: "Bracelets", metal: "Silver", purity: "Sterling Silver (925)", price: 5000 },
+        { id: 8, name: "Chain", weight: "1 Tola", image: "/img/shop/necklace1.jpg", category: "Chains", metal: "Gold", purity: "24K Gold", price: 75000 },
+        { id: 9, name: "Earrings", weight: "0.5 Tola", image: "/img/shop/earring1.jpg", category: "Earrings", metal: "Gold", purity: "22K Gold", price: 45000 }
     ],
     categories: [
         { name: "Necklace", image: "/img/shop/necklace1.jpg", link: "/shop?cat=necklace" },
@@ -37,8 +40,12 @@ export const websiteData = {
         { title: "Wedding Season Package", image: "/img/shop/necklace2.jpg" }
     ],
     testimonials: [
-        { name: "Rita Sharma", comment: "The quality and design of the jewelry here is excellent." },
-        { name: "Amit Maharjan", comment: "Trusted shop, very good service." }
+        { name: "Shanta Kumar Thapa", comment: "They really helped me get my custome design in flexible price. Thank you for amazing service" },
+        { name: "Aayush Shakya", comment: "Been a regular customer since year always a pleasant experience to do business here." },
+        { name: "Anjeela Magar", comment: "Really an amazing shopping experience here." },
+        { name: "Sulav Shakya", comment: "Really great service and owner were really friendly" },
+        { name: "Sushma Thapa", comment: "amazing" },
+        { name: "Jenisha Mulmi", comment: "an amazing business with mr sulav , he was really kind and helped me a lot" }
     ],
     footer: {
         copy: "© 2025 All Rights Reserved",

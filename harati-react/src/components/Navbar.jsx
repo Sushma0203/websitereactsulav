@@ -8,8 +8,17 @@ const Navbar = () => {
 
     const updateDateTime = () => {
         const now = new Date();
-        const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        setDateTime(now.toLocaleDateString('en-US', options));
+
+        // English Format
+        const dayEn = now.toLocaleDateString('en-US', { weekday: 'long' });
+        const dateEn = now.toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' });
+        const timeEn = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+
+        // Nepali Format (using ne-NP locale for names)
+        const dayNe = now.toLocaleDateString('ne-NP', { weekday: 'long' });
+        const dateNe = now.toLocaleDateString('ne-NP', { day: 'numeric', month: 'long', year: 'numeric' });
+
+        setDateTime(`${dayEn}, ${dateEn} | ${dayNe}, ${dateNe} | ${timeEn}`);
     };
 
     useEffect(() => {
@@ -20,6 +29,10 @@ const Navbar = () => {
 
     return (
         <header className="navbar">
+            <div className="top-bar">
+                <div className="nav-datetime">{dateTime}</div>
+            </div>
+
             <div className="nav-inner">
                 <NavLink to="/" className="logo">
                     <img src="/img/s.png" alt="Harati Logo" />
@@ -37,8 +50,6 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </nav>
-
-                <div className="nav-datetime">{dateTime}</div>
 
                 <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
                     <i className={menuOpen ? "fas fa-times" : "fas fa-bars"}></i>

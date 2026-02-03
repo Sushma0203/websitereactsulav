@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { websiteData } from '../data/websiteData';
+import ImageModal from '../components/ImageModal';
 
 const Home = () => {
     const { hero, products, categories, offers, testimonials } = websiteData;
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const handleOpenModal = (imgSrc) => {
+        setSelectedImage(imgSrc);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedImage(null);
+    };
 
     return (
         <main>
@@ -30,7 +40,7 @@ const Home = () => {
                             <div className="price-note" style={{ marginBottom: '20px', fontSize: '14px', opacity: 0.7 }}>
                                 *Pricing subject to daily market gold rate
                             </div>
-                            <button className="add-booking-btn">View</button>
+                            <button className="add-booking-btn" onClick={() => handleOpenModal(product.image)}>View</button>
                         </div>
                     ))}
                 </div>
@@ -74,6 +84,12 @@ const Home = () => {
                     ))}
                 </div>
             </section>
+            {/* IMAGE MODAL */}
+            <ImageModal
+                isOpen={!!selectedImage}
+                imageSrc={selectedImage}
+                onClose={handleCloseModal}
+            />
         </main>
     );
 };
