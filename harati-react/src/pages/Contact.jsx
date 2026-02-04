@@ -107,7 +107,7 @@ const Contact = () => {
                     <h2 style={{ fontSize: '28px', color: 'var(--primary-maroon)', marginBottom: '30px', textAlign: 'center' }}>Find Us In Patan</h2>
                     <div style={{ width: '100%', height: '450px', borderRadius: '30px', overflow: 'hidden', boxShadow: 'var(--shadow-premium)', border: '1px solid rgba(197, 160, 89, 0.1)' }}>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.3639947816827!2d85.31828631435345!3d27.6751249828065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19cd7579698d%3A0xc3f5879a9539366e!2sGabahal%2C%20Lalitpur!5e0!3m2!1sen!2snp!4v1706950000000!5m2!1sen!2snp"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.122786258239!2d85.32029731506198!3d27.673819282805234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb191c078014cd%3A0x2c71c4ef6dbdf9b5!2sGabahal%2C%20Lalitpur!5e0!3m2!1sen!2snp!4v1733730000000"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}

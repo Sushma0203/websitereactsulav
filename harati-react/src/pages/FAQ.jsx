@@ -50,8 +50,8 @@ const FAQ = () => {
                         </h2>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
                             {featuredFaqs.map((faq, index) => (
-                                <div key={index} style={{ padding: '30px', background: 'var(--bg-cream)', borderRadius: '20px', position: 'relative', border: '1px solid rgba(197, 160, 89, 0.2)' }}>
-                                    <span style={{ position: 'absolute', top: '15px', left: '15px', background: 'var(--primary-maroon)', color: '#fff', padding: '4px 12px', fontSize: '10px', borderRadius: '50px', fontWeight: '700', letterSpacing: '1px' }}>FEATURED</span>
+                                <div key={index} className="faq-feature-card">
+                                    <span className="faq-feature-badge">FEATURED</span>
                                     <h3 style={{ marginTop: '20px', marginBottom: '15px', fontSize: '18px' }}>{faq.q}</h3>
                                     <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.6' }}>{faq.a}</p>
                                 </div>
@@ -66,13 +66,13 @@ const FAQ = () => {
                         </h2>
                         <div style={{ background: '#fff' }}>
                             {allQuestions.map((faq, index) => (
-                                <div key={index} style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '20px' }}>
+                                <div key={index} className="faq-list-item">
                                     <details style={{ cursor: 'pointer' }}>
-                                        <summary style={{ fontSize: '18px', fontWeight: '600', color: 'var(--primary-maroon)', padding: '10px 0', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                        <summary className="faq-summary">
                                             {faq.q}
-                                            <span style={{ color: 'var(--premium-gold)', fontSize: '20px' }}>+</span>
+                                            <span>+</span>
                                         </summary>
-                                        <div style={{ padding: '15px 20px', color: '#666', lineHeight: '1.7', background: '#fcfcfc', borderRadius: '10px', marginTop: '10px' }}>
+                                        <div className="faq-answer">
                                             {faq.a}
                                         </div>
                                     </details>

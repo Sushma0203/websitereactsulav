@@ -95,9 +95,9 @@ const Reviews = () => {
                         <h2 style={{ fontSize: '32px', color: 'var(--primary-maroon)', marginBottom: '40px', textAlign: 'center' }}>Past Reviews</h2>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
                             {pastReviews.map((review, index) => (
-                                <div key={index} style={{ background: '#fff', padding: '30px', borderRadius: '25px', boxShadow: 'var(--shadow-premium', border: '1px solid #eee', position: 'relative' }}>
+                                <div key={index} className="review-card">
                                     <h3 style={{ fontSize: '20px', marginBottom: '5px', color: 'var(--primary-maroon)' }}>{review.name}</h3>
-                                    <div style={{ color: 'var(--premium-gold)', fontSize: '18px', marginBottom: '15px' }}>
+                                    <div className="review-stars">
                                         {[...Array(review.rating)].map((_, i) => <span key={i}>⭐ </span>)}
                                     </div>
                                     <p style={{ color: '#555', fontStyle: 'italic', lineHeight: '1.6', marginBottom: '20px' }}>

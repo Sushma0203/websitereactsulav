@@ -56,33 +56,14 @@ const Services = () => {
             </section>
 
             <section className="product-section section fullwidth" style={{ backgroundColor: '#fff' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', padding: '0 20px' }}>
+                <div className="services-container">
                     {services.map((service, index) => (
-                        <div key={index} className="service-card" style={{
-                            textAlign: 'center',
-                            padding: '40px 30px',
-                            background: '#fff',
-                            borderRadius: '20px',
-                            boxShadow: 'var(--shadow-premium)',
-                            border: '1px solid rgba(197, 160, 89, 0.15)',
-                            transition: 'transform 0.3s ease'
-                        }}>
-                            <div style={{
-                                width: '70px',
-                                height: '70px',
-                                background: 'var(--bg-cream)',
-                                borderRadius: '50%',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                margin: '0 auto 25px',
-                                color: 'var(--primary-maroon)',
-                                fontSize: '28px'
-                            }}>
+                        <div key={index} className="service-card">
+                            <div className="service-icon">
                                 <i className={service.icon}></i>
                             </div>
-                            <h3 style={{ fontSize: '22px', marginBottom: '15px', color: 'var(--primary-maroon)' }}>{service.title}</h3>
-                            <p style={{ color: '#666', fontSize: '15px', lineHeight: '1.6' }}>{service.description}</p>
+                            <h3>{service.title}</h3>
+                            <p>{service.description}</p>
                         </div>
                     ))}
                 </div>

@@ -8,8 +8,8 @@ const Shop = () => {
         category: 'All Categories',
         metal: 'All Metals',
         purity: 'All',
-        minPrice: '',
-        maxPrice: ''
+        minWeight: '',
+        maxWeight: ''
     });
     const [activeFilters, setActiveFilters] = useState({ ...filters });
 
@@ -35,8 +35,8 @@ const Shop = () => {
             category: 'All Categories',
             metal: 'All Metals',
             purity: 'All',
-            minPrice: '',
-            maxPrice: ''
+            minWeight: '',
+            maxWeight: ''
         };
         setFilters(initial);
         setActiveFilters(initial);
@@ -46,10 +46,13 @@ const Shop = () => {
         const catMatch = activeFilters.category === 'All Categories' || product.category === activeFilters.category;
         const metalMatch = activeFilters.metal === 'All Metals' || product.metal === activeFilters.metal;
         const purityMatch = activeFilters.purity === 'All' || product.purity === activeFilters.purity;
-        const minPriceMatch = activeFilters.minPrice === '' || product.price >= parseFloat(activeFilters.minPrice);
-        const maxPriceMatch = activeFilters.maxPrice === '' || product.price <= parseFloat(activeFilters.maxPrice);
 
-        return catMatch && metalMatch && purityMatch && minPriceMatch && maxPriceMatch;
+        // Parse weight from string "X Tola"
+        const productWeight = parseFloat(product.weight);
+        const minWeightMatch = activeFilters.minWeight === '' || productWeight >= parseFloat(activeFilters.minWeight);
+        const maxWeightMatch = activeFilters.maxWeight === '' || productWeight <= parseFloat(activeFilters.maxWeight);
+
+        return catMatch && metalMatch && purityMatch && minWeightMatch && maxWeightMatch;
     });
 
     return (
@@ -99,22 +102,24 @@ const Shop = () => {
                     </div>
 
                     <div className="filter-group">
-                        <h3>Price Range</h3>
+                        <h3>Weight (in Tola)</h3>
                         <div className="price-inputs">
                             <input
                                 type="number"
-                                name="minPrice"
+                                name="minWeight"
                                 placeholder="Min"
-                                value={filters.minPrice}
+                                value={filters.minWeight}
                                 onChange={handleFilterChange}
+                                step="0.1"
                             />
                             <span>-</span>
                             <input
                                 type="number"
-                                name="maxPrice"
+                                name="maxWeight"
                                 placeholder="Max"
-                                value={filters.maxPrice}
+                                value={filters.maxWeight}
                                 onChange={handleFilterChange}
+                                step="0.1"
                             />
                         </div>
                     </div>
